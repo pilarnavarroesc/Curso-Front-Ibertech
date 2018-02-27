@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+    li{font-family:Courier New, Courier, monospace;}
+    </style>
+    <script>
+        var m = ["Lunes", "Martes", "Miércoles", 
+            "Jueves", "Viernes"];
+            var m2 = m;
+            function imprimir() {
+            var lista = document.querySelector("ul");
+            var lista= document.querySelector("ul");
+            lista.innerHTML="";//Borra lo anterior para que no se concatenen las listas
+            for (var i = 0; i < m2.length; i++) {
+                lista.innerHTML += "<li>" + 
+                    m2[i] + "</li>";
+            }
+        }
+        function ordenar(){
+           // Le pasamos a sort la funcion de ordenacion que tiene que emplear
+             m2=m.sort( function (a,b){
+            console.log(a,b);
+            return a.length-b.length;
+        }); 
+            imprimir();
+        }
+       
+        function filtrar(){
+             m2=m.filter( function (elem,pos,mat){
+            console.log(elem,pos);
+            return elem.length>6;
+        }); 
+            imprimir();
+        }
+       
+    </script>
+</head>
+<body>
+    <button onclick="ordenar();">Ordenar</button>
+    <button onclick="filtrar();">Filtrar</button>
+    <ul></ul>
+</body>
+</html>

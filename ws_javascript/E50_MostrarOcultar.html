@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    div#mensaje{
+    background-color: yellow;
+    border: 1px double black;
+    padding: 25px;
+    /* para que inicialmente este oculto */
+    display:none;
+    }
+    </style>
+</head>
+<script>
+    //ponemos eventos
+    
+    window.onload=function(){
+        document.querySelector("button#btnSaludar").onclick=saludar;
+        //le ponemos el eventro al otro boton
+        document.querySelector("button#btnOcultar").onclick=ocultar;
+    }
+   function saludar(event){
+    var capa=document.querySelector("#mensaje");
+    capa.style.display="block";
+    capa.innerHTML="<b>Hola desde Javasript</b>";
+
+   }
+   function ocultar(event){
+    var capa=document.querySelector("#mensaje");
+    capa.style.display="none";
+    capa.innerHTML=" ";
+
+   }
+</script>
+<body>
+        <button id="btnSaludar">Mostrar</button>
+        <button id="btnOcultar">Ocultar</button>
+    <!-- div con un id"mensaje" -->
+    <div id="mensaje"></div>
+</body>
+</html>

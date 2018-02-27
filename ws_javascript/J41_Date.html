@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+     window.onload=function (){
+         var ahora=new Date();
+         var div=document.querySelector("div");
+         div.innerHTML+=ahora.getHours()+":"
+            +ahora.getMinutes()+":"
+            +ahora.getSeconds() + "<br/>";
+        div.innerHTML +=ahora.toLocaleTimeString()+"<br/>";
+        div.innerHTML +=ahora.toLocaleDateString()+"<br/>";
+        div.innerHTML +=ahora.toDateString()+"<br/>";
+     }
+   </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

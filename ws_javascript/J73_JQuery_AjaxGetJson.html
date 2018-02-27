@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(event){
+            $.get("personas",undefined,insertarEnTabla);
+            $("div#panelbuscar button").click(buscar);//al hacer click se ejecute buscar
+        }).ajaxError(function(event,req,op,mensaje){
+            alert(req.status + ": " + req.statusText );
+        });
+       //como la cabecera Content-type de la respuesta es
+       //application/json",jQuery lo analiza automaticamente y me pasa el objeto o la matriz 
+       //JavaScript resultante de convertir el JSON recibido
+        function insertarEnTabla(personas){
+           
+            var tbody= $("#tablaDatos tbody"); 
+            tbody.empty();//vacia el contenido anterior(del tbody)
+            //recorremos personas
+            personas.forEach(function(p){
+               var tr=$("<tr></tr>");
+                tr.append($("<td></td>").text(p.dni));
+                tr.append($("<td></td>").text(p.nombre));
+                tr.append($("<td></td>").text(p.apellidos));
+                tr.append($("<td></td>").text(p.saldo));
+                    tbody.append(tr);
+            });
+        }
+        //#############################BUSCAR########################################
+        function buscar(event){
+            //leer lo que hay en txt apellidos
+            var ape=$("#txtApellidos").val();
+            //localhost:3020/personas_buscar?apellidos=garcia
+            $.get("personas_buscar",{apellidos:ape},insertarEnTabla);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <h1>Mantenimiento de clientes</h1>
+    <!-- div.panel>label+input -->
+    <div class="panel" id="panelbuscar">
+        <label for="txtApellidos">Apellidos</label>
+        <input type="text" id="txtApellidos">
+        <button>Buscar</button>
+    </div>
+    <!-- table#tablaDatos>thead>tr>th*4 -->
+    <table id="tablaDatos">
+        <thead>
+            <tr>
+                <th>DNI</th><th>Nombre</th><th>Apellidos</th><th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

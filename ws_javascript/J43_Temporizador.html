@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        var diasSemana = ["domingo","lunes","martes","miércoles",
+            "jueves","viernes","sábado"];
+        window.onload = function () {
+            document.querySelector("button#btnEmpezar").onclick = empezar;
+            document.querySelector("button#btnParar").onclick = parar;
+        }
+        var contador;
+        function empezar() {
+            // Llamamos a "fin" dentro de 3 segundos.
+            contador = setTimeout(fin,3000);
+        }
+        function fin(){
+            alert("Fin de la cuenta atrás!!!")
+        }
+        function parar() {
+            // Paro el temporizador asociado a la variable contador.
+            clearTimeout(contador);
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <button id="btnEmpezar">Contar 3 segundos</button>
+        <button id="btnParar">Parar</button>
+    </p>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(event){
+            $("div#botones button").each(function(i,boton){
+                $(boton).click(pedirCapitulo);
+                $(boton).text( "Capítulo " + (i + 1));//queryselectorall
+                boton.numCapitulo = i + 1;
+            });
+        }).ajaxError(function(event,req,op,mensaje){//funcion global de error de Ajax
+            alert(req.status + ": " + req.statusText + ": "+mensaje);
+        });
+       
+        function pedirCapitulo(event) {
+            var op={};
+            op.url = "datos/capitulo" 
+                + event.currentTarget.numCapitulo + ".txt";
+            op.success=capituloOk;//solamente de de success
+            $.ajax(op);
+        }
+        function capituloOk(texto,ok,req){
+            $("#texto").text(texto);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div id="botones">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <div id="texto" class="panel"></div>
+</body>
+
+</html>

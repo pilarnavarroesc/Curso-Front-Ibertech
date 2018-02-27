@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        div.menu{width:100px;float:left;}
+        div.cabecera, div.item{
+            border:1px solid black;
+            padding: 7px 15px;
+            font-family: sans-serif
+        }
+        div.cabecera{background-color: gold;
+            border-right-width:0px;}
+        div.menu:last-child div.cabecera{
+            border-right-width:1px !important;}
+        div.item{background-color: aliceblue;
+            border-top-width:0px;}
+        div.item:hover{background-color: lightblue;}
+        div.menu div.submenu{display:none;}
+        div.menu:hover div.submenu{display:block;}
+        div#contenedorMenu{position:fixed;
+            left:0px;top:0px;right:0px;}
+        div#espacioSuperior{height:35px;}
+    </style>
+    <script>
+        function ver(nombre){
+            document.getElementById("foto").src = 
+                "img/" + nombre + ".png";
+        }
+        function ocultar(){
+            document.getElementById("foto").src = "";
+        }
+    </script>
+</head>
+<body>
+    <div id="contenedorMenu">
+        <div class="menu">
+            <div class="cabecera">Archivo</div>
+            <div class="submenu">
+                <div class="item">Abrir</div>
+                <div class="item">Guardar</div>
+                <div class="item">Cerrar</div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="cabecera">Editar</div>
+            <div class="submenu">
+                <div class="item">Copiar</div>
+                <div class="item">Cortar</div>
+                <div class="item">Pegar</div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="cabecera">Animales</div>
+            <div class="submenu">
+                <div class="item" onmouseover="ver('gato');">Gato</div>
+                <div class="item" 
+                    onmouseover="ver('perro');"
+                    onmouseout="ocultar();">Perro</div>
+            </div>
+        </div>
+    </div>
+    <div id="espacioSuperior"></div>
+    <div>
+        <img id="foto" />
+    </div>
+</body>
+</html>

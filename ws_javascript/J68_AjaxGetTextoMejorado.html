@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script>
+        window.onload = function (event) {
+            document.querySelectorAll("div#botones button")
+                .forEach(function (boton, i) {
+                    boton.addEventListener("click",pedirCapitulo);
+                    boton.innerHTML = "Capítulo " + (i + 1);
+                    boton.numCapitulo = i + 1;
+                }
+            );
+        };
+        function pedirCapitulo(event) {
+            var url = "datos/capitulo" 
+                + event.currentTarget.numCapitulo + ".txt";
+            var req = new XMLHttpRequest();
+            req.open("GET",url);
+            req.onreadystatechange = function (event) {
+                if(req.readyState==4 && req.status==200){
+                    capituloOk(req,event);//Función Success
+                }else if(req.readyState==4 && req.status!=200){
+                    capituloErr(req,event);//Función de error
+                }
+            };
+            req.send(null);
+        }
+        function capituloOk(req,event){
+            document.getElementById("texto").innerHTML =
+                        req.responseText;
+        }
+        function capituloErr(req,event){
+            alert(req.status + ": " + req.statusText);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="botones">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <div id="texto" class="panel"></div>
+</body>
+
+</html>

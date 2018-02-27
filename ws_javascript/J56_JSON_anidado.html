@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        //Matriz JSON de objetos JSON
+        var m = [
+            {nombre:"Daniel",saldo:10},
+            {nombre:"Enrique",saldo:20},
+            {nombre:"Ester",saldo:30},
+            {nombre:"Sergio",saldo:40}
+        ];
+        var suma = 0;
+        m.forEach(function(persona){
+            suma += persona.saldo;
+            console.log(persona.nombre);
+        });
+        console.log("Saldo medio:",suma/m.length);
+        // Objeto JSON que tiene en sus atributos otros objetos y matrices
+        var persona = {
+            nombre:"Vladimir",
+            apellidos:"Bataller",
+            direccion:{calle:"Goya",numero:"22"},//atributo que es otro objetos
+            hijos:["Martín","Vera"]//atributo que es una matriz
+        };
+        console.log("Nombre:",persona.nombre);
+        console.log("Apellidos:",persona.apellidos);
+        console.log("Dirección:",persona.direccion.calle,
+             persona.direccion.numero);
+        console.log("Hijo mayor:",persona.hijos[0]);
+        console.log("Hija menor:",persona.hijos[1]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

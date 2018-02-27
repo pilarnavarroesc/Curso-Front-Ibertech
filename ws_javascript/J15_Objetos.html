@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        // Referencia para apuntar a la 
+        // última ventana abierta. A través de ella
+        // podremos acceder a sus propiedades y métodos.
+        var miVentana;
+        function abrir(){
+            // La variable window está siempre disponible
+            // y apunta a un objeto que permite
+            // hacer operaciones con las ventanas.
+            // Su método "open" abre una ventana nueva
+            // con la url indicada como primer argumento
+            // y retorna una referencia al objeto
+            // que representa la nueva ventana.
+            // La guardamos en una variable global
+            // para poder usarla en otras funciones.
+            miVentana = window.open("","nueva");
+        }
+        function navegar(){
+            // Los objetos de tipo Window tienen 
+            // el atributo o propiedad "location"
+            // que permite indicar la url desde donde
+            // se carga la página.
+            miVentana.location = "http://www.google.es";
+        }
+        function cerrar(){
+            // Los objetos de tipo Window tienen 
+            // el método "close()"
+            // que permite cerrar la ventana.
+            miVentana.close();
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <button onclick="abrir();">Abrir ventana</button>
+        <button onclick="navegar();">Navegar</button>
+        <button onclick="cerrar();">Cerrar ventana</button>
+    </p>
+</body>
+
+</html>

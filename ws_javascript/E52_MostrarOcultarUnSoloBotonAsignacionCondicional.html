@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- archivo mejorado, en vez de hacerlo en 7 lineas lo hace en menos -->
+    <meta charset="UTF-8"/>
+    <style>
+    div#mensaje{
+    background-color: yellow;
+    border: 1px double black;
+    padding: 25px;
+    text-align: center;
+    display:none;
+    }
+    </style>
+</head>
+<script>
+//declaramos variable global, que declaramos si actualmente esta visible(true) o oculto(false)
+    var visible=false;
+    window.onload=function(){
+         document.querySelector("button#btnClick").onclick=conmutar;   
+    }
+   function conmutar(event){
+    var capa=document.querySelector("#mensaje")
+    capa.style.display=visible?"none":"block";//operador asignacion condicional, si esta visible
+    //entonces hay que ocultarlo(cambio en funcion de que actualmente este visible u oculto)
+    capa.innerHTML="<b>Hola desde Javasript</b>";
+    //conmuto su visibilidad:
+   visible= !visible;//visible es igual a lo contrario de lo que tenga
+   }
+   
+</script>
+<body>
+        <button id="btnClick">Hacer Click</button>
+    <div id="mensaje"></div>
+</body>
+</html>
+
+<!-- Mirar en este ejemplo, es muy parecido: -->
+<!-- https://entrepantallasdev.wordpress.com/2013/11/20/javascript-boton-para-mostrar-y-ocultar-un-elemento-html/ -->

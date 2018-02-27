@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <style>
+        ul{background-color:lightgreen;border:1px solid black;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        var matriz = [];
+        $(document).ready(function(){
+            comprobarHabilitar();
+            $("#dias").change(comprobarHabilitar);
+            $("#btnInsertar").click(insertar);
+            $("#btnEnviar").click(enviar);
+        });
+
+        function comprobarHabilitar(){
+            if($("#dias").val()==""){
+                $("#btnInsertar").attr("disabled",true);
+            } else {
+                $("#btnInsertar").attr("disabled",false);
+            }
+        }
+
+        function insertar(event){
+                var dia = $("#dias").val();
+                var li = $("<li></li>");
+                li.text(dia);
+                $("#lista").append(li);
+                matriz.push(dia);
+        }
+        function enviar(event) {
+            var op ={};
+            op.url = "agenda";
+            op.type = "POST";
+            op.contentType = "application/json";
+            op.data = JSON.stringify(matriz);
+            console.log(typeof op.data,"->",op.data);
+            op.success = enviarOk;
+            $.ajax(op);
+        }
+        function enviarOk(datos){
+            alert(datos);
+        }
+
+    </script>
+</head>
+<body>
+    <select name="" id="dias">
+        <option value=""></option>
+        <option value="lunes">lunes</option>
+        <option value="martes">martes</option>
+        <option value="miércoles">miércoles</option>
+        <option value="jueves">jueves</option>
+        <option value="viernes">viernes</option>
+        <option value="sabado">sabado</option>
+        <option value="domingo">domingo</option>
+    </select>
+    <button id="btnInsertar">Insertar</button>
+    <ul id="lista"></ul>
+    <button id="btnEnviar">Enviar</button>
+</body>
+</html>

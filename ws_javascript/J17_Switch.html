@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function insertarNota(){
+            var nota = parseFloat(
+                document.getElementById("txtNota").value);
+            nota = Math.floor(nota);
+            var mensaje = "";
+            switch (nota) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    mensaje = "Suspendido. :-(";
+                    break;
+                case 5:
+                case 6:
+                    mensaje = "Aprobado. :-|";
+                    break;
+                case 7:
+                case 8:
+                    mensaje = "Notable. :-)";
+                    break;
+                default:
+                    mensaje = "Sobresaliente. X-)";
+                    break;
+            }
+            document.getElementById("resultado").value =
+                mensaje;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Nota: <input type="text" id="txtNota" value="5"/>
+        <button onclick="insertarNota();">
+            Insertar Nota</button> <br/>
+        <input type="text" readonly="readonly" id="resultado"/>    
+       
+    </p>
+</body>
+
+</html>

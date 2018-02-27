@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        var m = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+        function insertar() {
+           var ul=document.querySelector("ul");
+           //recorremos cada dia de la matriz
+           m.forEach(function(dia){
+               //creamos una etiqueta <li>
+                var li=document.createElement("li");
+                //insertamos el dia dentro del <li>
+                li.innerHTML=dia;
+                //añadimos el <li> al <ul>
+                ul.appendChild(li);
+           });
+        }
+        function copiar(){
+            //Referencia a la lista
+            var ul=document.querySelector("ul");
+            //Referencia al body
+            var body=document.querySelector("body")
+            //Copio la lista
+            var copia=ul.cloneNode(true);
+            //añado la copia al body.
+            body.appendChild(copia);
+        }
+        function inicializar(){
+            //Asigna el evento al boton copiar 
+            document.querySelector("button").onclick= copiar;
+            // y llama a insertar
+            insertar();
+        }
+        window.onload=inicializar;
+    </script>
+</head>
+<body>
+    <ul></ul>
+    <button>Copiar</button>
+</body>
+</html>

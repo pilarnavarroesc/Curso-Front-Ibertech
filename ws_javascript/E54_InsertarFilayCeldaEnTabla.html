@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        window.onload= function (event) {
+            document.querySelector("#btnInsertar").onclick = insertar;
+        }
+        var contador=0;
+        function insertar(params) {
+            contador++;
+            var texto = document.querySelector("#txtNombre").value;
+            var tbody = document.querySelector("#tablaDatos tbody");
+            var tr=document.createElement("tr");//fila
+            // Crear la celda
+            var td1 = document.createElement("td");//celda 1
+            var td2 = document.createElement("td");//celda 2
+            td1.innerHTML=contador; //Contenido
+            // Insertarle el texto
+            td2.innerHTML=texto;//Contenido
+            // Insertar la celda en la fila
+            tbody.appendChild(tr);//meter la fila en el tbody
+            tr.appendChild(td1);//meter en la fila la celda 1
+            tr.appendChild(td2);//meter en la fila la celda 2
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtNombre"/>
+    <button id="btnInsertar">Insertar</button>
+
+    <table id="tablaDatos">
+        <tbody>
+    
+
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

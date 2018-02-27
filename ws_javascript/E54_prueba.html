@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        table{border-collapse: collapse;}
+        table td{border:1px solid black;background-color: aqua}
+    </style>
+    <script>
+        window.onload=function() {
+            document.getElementById("btnInsertar").onclick=insertarFila;
+        }
+        num=0;
+        function insertarFila(){
+            num++
+            var cadena=document.getElementById("text").value;
+            var fila="<tr><td>"+num+"</td><td>"+cadena+"</td></tr>"
+            document.getElementById("tabl").innerHTML+=fila;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="text">
+    <button id="btnInsertar">Insertar</button>
+    <table id="tabl">
+    
+    </table>
+</body>
+</html>

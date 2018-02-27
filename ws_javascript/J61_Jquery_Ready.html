@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        img{height:200px; }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        window.onload = function() {
+            console.log("onload",new Date().toLocaleTimeString()
+                ,new Date().getTime());
+        }
+        $(document).ready(function(){
+            console.log("ready",new Date().toLocaleTimeString()
+                ,new Date().getTime());
+        });
+    </script>
+</head>
+<body>
+    <img src="https://www.estadosecapitaisdobrasil.com/wp-content/uploads/2015/04/mapa-mundi.png"/>
+    <script>
+        console.log("fin html",new Date().toLocaleTimeString()
+                ,new Date().getTime());
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        *{box-sizing: border-box}
+        table{border-collapse: collapse;}
+        td{height: 50px;width: 50px;border: 1px solid black;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script> // Este script tiene que estar después del de jquery 
+        window.onload=function (event) {
+            $("tr:odd>td:even").each(function(i,elemento){//tr:odd>td:even-->uno es par y otro impar
+                //elemento.style.backgroundColour=...
+                //con jquery:
+                $(elemento).css("background-color","black");
+            });
+            $("tr:even>td:odd").each(function(i,elemento){
+                //elemento=this
+                $(this).css("background-color","black");
+            });
+            //obtenemos un objeto jquery que apunta tanto a los td de td pares de filas pares
+            //como td impares de filas impares
+            var pares= $("tr:odd>td:odd,tr:even>td:even ")
+            //lo reccorremos con un for clasico y obtenemos los objetos de un DOM conn el 
+            //metodo clasico get(i).
+            for (let i = 0; i < pares.length; i++) {
+                const elemento = pares.get(i);
+                $(elemento).css("background-color","yellow");
+                
+            }
+                
+        }
+    </script>
+</head>
+<body>
+  <!-- table>tbody>(tr>td*10)*10 -->
+  <table>
+      <tbody>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+      </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+</head>
+<body>
+    <p id="mensaje"></p>
+    <script>
+        var a="Hola";
+        var b=12;
+        var c=true;
+        var d=new Date();
+        var e=null;
+        var f;
+        //la variable undefined no la defino
+        texto= a + " es un  " +typeof(a) + "<br/>"+
+        b+ " es un  " +typeof(b) + "<br/>"+
+        c+ " es un  " +typeof(c) + "<br/>"+
+        d+ " es un  " +typeof(d) + "<br/>"+
+        e+ " es un  " +typeof(e) + "<br/>"+
+        f+ " es un  " +typeof(f);
+        document.getElementById("mensaje").innerHTML=texto;
+
+    </script>
+    
+</body>
+</html>

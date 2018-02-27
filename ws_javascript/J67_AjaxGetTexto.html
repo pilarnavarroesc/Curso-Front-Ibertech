@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        window.onload=function(event){
+            document.querySelectorAll("div#botones button")
+                .forEach(function(boton,i){
+                    boton.addEventListener("click",pedirCapitulo);//la funcion pedircapitulo se ejecuta cuando haga click
+                    boton.innerHTML="Capítulo "+ (i + 1);
+                    boton.numCapitulo= i + 1;
+            });
+        };
+         function pedirCapitulo(event){
+            var url="datos/capitulo" + event.currentTarget.numCapitulo+".txt";
+            var req=new XMLHttpRequest();//objeto que nos permite conectar con un servidor
+            // alert(url); lo hemos usado para comprobar si la url la da bien
+            console.log("Antes de open:",req.readyState);
+            //Asignar el evento de cambio de estado en la comunicacion
+            req.onreadystatechange=cambioEstado;
+            //para configurar la peticion(request)
+            req.open("GET",url);
+            console.log("Despues de open:",req.readyState);
+            //el sent es un metodo asincrono:es decir no bloquea la ejecucion del JS
+            //durante la comunicacion
+            //es decir el send lanza la comunicacion
+            req.send(null);
+             //despues del send no habra terminado la comunicacion
+            console.log("Despues del Sent:",req.readyState);
+         }
+         function cambioEstado(event) {
+             var req=event.currentTarget;
+             console.log("Cambio de estado",req.readyState);
+             if(req.readyState==4 && req.status==200){//si comunicacion terminada(4) ok(200)
+                document.getElementById("texto").innerHTML=
+                    req.responseText;//responseText es el cuertpo del mensaje que he recibido
+            //readystate pasa por cuatro fases
+             }else if(req.readyState==4 && req.status!=200)//si ha terminado error
+                alert(req.status +": "+req.statusText);
+             
+         }
+       
+        
+
+    </script>
+</head>
+<body>
+    <!-- div>button*5 -->
+    <div id="botones">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <div id="texto" class="panel"></div>
+</body>
+</html>

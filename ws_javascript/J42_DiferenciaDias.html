@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        var diasSemana=["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+     window.onload=function (){
+         //para acceder al boton:
+         document.querySelector("button").onclick= calcularDias;
+     }
+     function calcularDias(){
+         var hoy=new Date();
+         //para ver en consola el dia de hoy
+         console.log(hoy.getDate(),hoy.getMonth(),hoy.getFullYear());
+         var dia=parseInt(document.getElementById("dia").value);
+         var mes=parseInt(document.getElementById("mes").value);
+         var anio=parseInt(document.getElementById("anio").value);
+         var fecha=new Date(anio,mes,dia);
+         fecha.setFullYear(anio);
+         //para ver en consola la fecha
+         console.log(fecha.getDate(),fecha.getMonth(),fecha.getFullYear());
+         var t1=fecha.getTime();//milisegundos de la fecha
+         var t2=hoy.getTime();//milisegundos de hoy
+         var t=t2-t1;//diferencia en milisegundos
+         var numDias=Math.floor(t/(1000*60*60*24));
+         document.querySelector("div").innerHTML=" Entre el " +
+         diasSemana[fecha.getDay()]+ ", " 
+           + fecha.toLocaleDateString()+" y hoy hay "+numDias+" dias ";
+        //calculo de tu 10.000 cumpleaños
+        var t3=t1 +10000*1000*60*60*24; 
+        var fechaDiezmil= new Date(t3);
+        alert("El dia de "+fechaDiezmil.toLocaleDateString()+
+        "cumpliras 10.000 dias.");
+     }
+   </script>
+</head>
+<body>
+    <p>
+        <input type="number" id="dia"/>
+        <select id="mes">
+            <!-- select>option*12 -->
+            <option value="0">Enero</option>
+            <option value="1">Febrero</option>
+            <option value="2">Marzo</option>
+            <option value="3">Abril</option>
+            <option value="4">Mayo</option>
+            <option value="5">Junio</option>
+            <option value="6">Julio</option>
+            <option value="7">Agosto</option>
+            <option value="8">Septiembre</option>
+            <option value="9">Octubre</option>
+            <option value="10">Noviembre</option>
+            <option value="11">Diciembre</option>
+        </select>
+        <input type="number" id="anio"/>
+        <button>Calcular días</button>
+    </p>
+    <div></div>
+</body>
+</html>

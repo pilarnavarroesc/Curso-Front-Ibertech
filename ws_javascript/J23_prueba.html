@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        function invertir() {
+            var ini=document.getElementById("texto").value;
+            var resul="";
+            for (let i = 0; i < ini.length; i++) {
+                resul = ini.charAt(i) + resul;
+            }
+        document.getElementById("resultado").innerHTML=resul+ "<br/>";
+        }
+
+        function trocear() {
+            var ini=document.getElementById("texto").value;
+            // n=0;
+            var resul="";
+            // while(n<ini.length){
+            //     var cad=ini.substr(n,5);
+            //     resul += cad + "<br/>";
+            //     n+=5; 
+            // }
+            for (let i = 0; i < ini.length; i+=5) {
+                    var cad=ini.substr(i,5);
+                    resul += cad + "<br/>";
+
+
+            }
+            document.getElementById("resultado").innerHTML+=resul;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="texto">
+    <button onclick="invertir();">Invertir</button>
+    <button onclick="trocear();">Trocear</button>
+    <div id="resultado"></div>
+</body>
+</html>

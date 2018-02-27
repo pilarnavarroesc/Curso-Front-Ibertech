@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        window.onload = function () {
+            mostrarFoto(false);//al cargar la foto se oculta
+            document.querySelector("input[type=checkbox]").onchange=
+                cambioCheck;
+           var radios= document.querySelectorAll("input[name=cosa]");
+           radios.forEach(function(radio){
+                radio.onchange=cambioRadio;
+           });
+           cambioRadio();
+        }
+        function cambioRadio(){
+            var radios= document.querySelectorAll("input[name=cosa]");
+            radios.forEach(function(radio){
+                if(radio.checked){
+                    document.getElementById("foto").src="img/"+radio.value;
+                }
+           });
+        }
+        function mostrarFoto(mostrar){
+            if(mostrar){
+                document.getElementById("foto").style.display="inline";
+            }else{
+                document.getElementById("foto").style.display="none";
+            }
+        }
+        //Evento aplicado al checkbox
+        function cambioCheck(event){
+            //acceder al check desde el evento
+            //el current target es el checkbox que
+            // tiene la propiedad checked que indica si esta seleccionado
+            mostrarFoto(event.currentTarget.checked)
+        }
+        //para hacer el ejercicio 4 hare un for que rrecorra los elementos y con un .innerHTML
+        //los enviare al servidor
+       
+    </script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div>
+        <!-- autocomplete pèrmite desactivar el autocompletado de formularios 
+             del navegador -->
+        <input type="checkbox" autocomplete="off"/>Mostrar foto <br/>
+             <input type="radio" name="cosa" value="gato.png" checked="checked"/>Gato
+             <input type="radio" name="cosa" value="perro.png"/>Perro
+             <input type="radio" name="cosa" value="casa.gif"/>Casa
+        <img id="foto" src="img/gato.png"/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+         var m = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+        function imprimir() {
+            document.querySelector("ul").innerHTML="";
+            for (let i = 0; i < m.length; i++) {
+                document.querySelector("ul").innerHTML+="<li>"+m[i]+"</li>"
+                
+            }
+        }
+        function ordenar() {
+            var m2=m.sort(function(a,b){
+                return a.length-b.length;
+            });
+            document.querySelector("ul").innerHTML="";
+            for (let i = 0; i < m2.length; i++) {
+                document.querySelector("ul").innerHTML+="<li>"+m2[i]+"</li>"
+                
+            }
+        }
+        function filtrar() {
+            var m2=m.filter(function(elemento,posicion,matriz){
+                return elemento.length>6;
+            });
+            document.querySelector("ul").innerHTML="";
+            for (let i = 0; i < m2.length; i++) {
+                document.querySelector("ul").innerHTML+="<li>"+m2[i]+"</li>"
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="imprimir()">imprimir</button>
+    <button onclick="ordenar()">ordenar</button>
+    <button onclick="filtrar()">filtrar</button>
+    <ul></ul>
+</body>
+</html>

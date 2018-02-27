@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<script>
+    //podemos hacerlo con funcion anonima, para no repetir.
+    // window.onload=function{
+    //    document.querySelector("button#btnSaludar").onclick=saludar;
+    // }
+   window.onload=inicializar;//evento
+   function inicializar(){
+        document.querySelector("button#btnSaludar").onclick=saludar;
+   }
+   function saludar(event){
+        alert("Hola desde Javasript");
+   }
+</script>
+<body>
+        <button id="btnSaludar">Haga click</button>
+
+</body>
+</html>

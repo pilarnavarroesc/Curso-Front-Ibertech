@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+    img{ height: 200px;}
+    </style>
+    <script>
+        //usamos funciones anonimas para no tener que usar dos funciones una de imagen y otra de body
+            function cargado(que) {
+           console.log(que,new Date().toLocaleTimeString()
+           ,new Date().getTime());
+            }
+        
+    </script>
+</head>
+<body onload="cargado('body');">
+   <img src="http://descargarmapas.net/mapamundi/mapamundi-politico.png" 
+   onload="cargado('imagen')"/>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+            p#saludo{
+            background-color: yellow;
+            border: 1px double black;
+            padding: 25px;
+            }
+            </style>
+    <script>
+        function saludar() {
+            var capa=document.getElementById("saludo")
+            capa.innerHTML="Hola desde JS";
+            capa.style.backgroundColor="yellow";
+            capa.style.padding="5px 7px";
+            capa.style.width="50%";
+            capa.style.margin="10px auto";
+            capa.style.textAlign="center";
+
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="saludar();">saludar</button>
+    <p id="saludo"></p>
+</body>
+</html>

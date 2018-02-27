@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function unoADiez(){
+            document.getElementById("resul").innerHTML ="";
+          for (var i = 1; i <= 10; i++) {
+             document.getElementById("resul").innerHTML += i + "<br/>";
+          }
+        }
+        function pares(){
+            document.getElementById("resul").innerHTML ="";
+          for (var i = 2; i <= 30; i+=2) {
+             document.getElementById("resul").innerHTML += i + "<br/>";
+          }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <button onclick="unoADiez();">
+            Numeros del 1 al 10</button> <br/>
+        <button onclick="pares();">
+                pares del 2 al 30</button>
+    </p>
+    <div id="resul"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        //Matriz JSON
+    var m=[5,3,8,7,6];
+    var suma=0;
+    m.forEach(function(num,pos,mat){
+        suma+=num;
+    })
+    console.log("Suma:",suma);
+    console.log("Media:",suma/m.length);
+    //Objeto JSON
+    var persona={dni:244,nombre:"Pilar",apellidos:"Navarro"};
+    console.log("DNI:",persona.dni);//dame de persona su atributo dni
+    console.log("Nombre:",persona.nombre);//dame de persona su atributo nombre
+    console.log("Apellidos:",persona.apellidos);//dame de persona su atributo apellidos
+    console.log("Saldo:",persona.saldo);
+    console.log("Tipo:",typeof persona);//object
+    console.log("Clase:",persona.constructor.name);//clase object
+    var fecha=new Date();
+    console.log("Tipo de fecha:",typeof fecha);//object
+    console.log("Tipo de fecha:",fecha.constructor.name);//clase date
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

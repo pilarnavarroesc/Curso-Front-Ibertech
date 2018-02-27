@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function sumar(a,b){
+            var c = a + b;
+            document.getElementById("resultado")
+                .innerHTML += a + " + " + b + " = " 
+                    + c + "<br/>";
+            // Return termina la función y retorna 
+            // un valor, en este caso el valor de c.
+            return c;
+        }
+    </script>
+</head>
+<body>
+    <div id="resultado"></div>
+    <script>
+        sumar(4,sumar(3,sumar(1,2)));
+        
+    </script>
+</body>
+</html>

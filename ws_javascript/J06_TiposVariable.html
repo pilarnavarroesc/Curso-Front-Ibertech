@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <div id="mensaje">Mensaje no recibido</div> 
+    <script>
+      var texto ="";
+    //   number
+      var a= 12;
+      texto += a + " es un " +typeof a+ "<br/>";
+    //   string
+      var b= "Hola";
+      texto += b + " es un " +typeof b+ "<br/>";
+    //   boolean
+      var c= true;
+      texto += c + " es un " +typeof c+ "<br/>";
+      //   objeto de tipo de fecha
+      var d= new Date();
+      texto += d + " es un " +typeof d+ "<br/>";
+       //   undefined
+       var e;
+      texto += e + " es un " +typeof e+ "<br/>";
+       //   null
+       var f=null;
+      texto += f + " es un " +typeof f+ "<br/>";
+
+      document.getElementById("mensaje").innerHTML =
+    texto;
+    </script>
+</body>
+</html>

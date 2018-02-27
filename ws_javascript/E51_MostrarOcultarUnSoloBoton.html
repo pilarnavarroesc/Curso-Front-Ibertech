@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    div#mensaje{
+    background-color: yellow;
+    border: 1px double black;
+    padding: 25px;
+    text-align: center;
+    /* para que inicialmente este oculto */
+    display:none;
+    }
+    </style>
+</head>
+<script>
+//declaramos variable globar
+var visible=false;
+    window.onload=function(){
+         document.querySelector("button#btnClick").onclick=conmutar;   
+    }
+   function conmutar(event){
+    var capa=document.querySelector("#mensaje");
+    if(visible==false){
+       capa.style.display="block";//muestra
+        capa.innerHTML="<b>Hola desde Javasript</b>";
+         visible=true;  
+        // capa.style.textAlign="center";=text-align: center;
+    }else{//si esta visible ocultamos
+        capa.style.display="none";//oculta
+        capa.innerHTML="";
+         visible=false;  
+    }
+   
+   }
+   
+</script>
+<body>
+        <button id="btnClick">Hacer Click</button>
+    <div id="mensaje"></div>
+</body>
+</html>

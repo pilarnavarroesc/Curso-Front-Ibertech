@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script src="js/jquery.js"></script>
+    <script> // Este script tiene que estar después del de jquery 
+        window.onload=function (event) {
+            // Formato clave, valor
+            $("div#contenedor>div").css("background-color","yellow");
+            // Formato JSON.
+            $("div#contenedor>div").css({
+                border:"1px solid black",
+                padding:"20px",
+                marginTop:"20px"
+            });
+            $("div#contenedor>div.par").css("background-color","orange");
+            //Todos los que tengan la letra r, selector por contenido
+            $("div#contenedor>div:contains('r')").css({
+                border:"4px dashed green"
+            });
+            //el primer div que es el primer hijo de su padre que es el contenedor
+            //El div que sea el primer hijo de su padre (div#contenedor)
+            $("div#contenedor>div:first-child").css("background-color","lime");
+            //de todos los div par que hay dentro del div contenedor, el primero aunque no sea
+            //el primer hijo de su padre.
+            $("div#contenedor>div.par:first").css("background-color","pink");
+            $("p>img:first-child")
+            .attr("src","img/gato.png")
+            .css("height","100px")
+            // si quiero añadir otra propiedad: .css("widht","100px");
+            //imagenes que contengan la palabra perro en su "src"
+             $("p>img[src*=perro]").height(50).on("click",aumentar);
+             //Tambien se podria hacer sin el metodo heigth-->$("p>img[src*=perro]").css("height","50px") 
+            $("p:last").html("En un lugar de la Mancha...")//es un metodo
+        }
+        function aumentar(event){
+            //si aplico la funcion $ a un elemento DOM, nos retorna
+            //el objeto jQuery que contiene ese elemnto DOM.
+            var perro= $(event.currentTarget);
+            perro.height(2*perro.height());
+            var p=$("p:last")
+            p.html(p.html()+"<br/>"+perro.height()); 
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="contenedor">
+        <div>Lunes</div>
+        <div class="par">Martes</div>
+        <div>Miercoles</div>
+        <div class="par">Jueves</div>
+        <div>Viernes</div>
+    </div>
+    <p><img src="img/perro.png"><img src="img/perro.png"></p>
+    <p><img src="img/perro.png"><img src="img/perro.png"></p>
+    <p>
+
+    </p>
+</body>
+</html>

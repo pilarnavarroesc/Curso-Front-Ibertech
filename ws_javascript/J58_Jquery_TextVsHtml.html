@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script src="js/jquery.js"></script>
+    <script> // Este script tiene que estar después del de jquery 
+        window.onload=function (event) {
+        console.log("HTML-->"+$("p").html());//si hacemos html se lee todo lo que pongamos
+        //alert("TEXT-->"+$("p").text());//si hacemos text no se ven las etiquetas que pongamos:solo texto
+        var t=$("p").text().replace(/\s+/g,"#");///\s+/g expresiones regulares (no las vamos a ver)
+        console.log("Texto-->"+ t);
+        var m=t.split("#");
+        m=m.filter(function(palabra){
+           return palabra.length!=0;//filtramos y quitamos los elementos que tengan espacio cero
+        });
+        console.log(m.length + " palabras");
+        m.forEach(function(palabra){
+            console.log("-->",palabra);
+        })
+        }
+    </script>
+</head>
+<body>
+    <p>
+        En un lugar de la <mark>Mancha</mark><br/> de cuyo nombre no quiero acordarme<br/>
+        no ha mucho tiempo que vivía.
+    </p>
+</body>
+</html>

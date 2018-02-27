@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        function UnoADiez(){
+            document.getElementById("result").innerHTML= "";
+            for (var i = 0; i <= 10; i++) {
+                document.getElementById("result").innerHTML+=i+"<br/>";
+                
+            }
+        }
+        function numerosPares(){
+            document.getElementById("result").innerHTML= "";
+            for (let i = 0; i <=10; i+=2) {
+                document.getElementById("result").innerHTML+=i+"<br/>";
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="UnoADiez();">Numeros del uno al diez</button>
+    <button onclick="numerosPares();">Numeros pares</button>
+    <div id="result"></div>
+</body>
+</html>

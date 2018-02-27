@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        window.onload= function (event) {
+            document.querySelector("#btnInsertar").onclick = insertar;
+        }
+        function insertar(params) {
+            var texto = document.querySelector("#txtNombre").value;
+            var fila = document.querySelector("#fila");
+            // ------------ INSERCIÓN CON HTML ----------
+            // fila.innerHTML += "<td>" + texto + "</td>";
+            // ------------ INSERCIÓN CON EL DOM --------
+            // Crear la celda
+            var td = document.createElement("td");
+            // Insertarle el texto
+            td.innerHTML=texto;
+            // Insertar la celda en la fila
+            fila.appendChild(td);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtNombre"/>
+    <button id="btnInsertar">Insertar</button>
+
+    <table id="tablaDatos">
+        <tbody>
+            <tr id="fila">
+
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

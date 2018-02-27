@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script >
+    var a=parseFloat(prompt("Dividendo"));
+    var b=parseFloat(prompt("Divisor"));
+    var c = a/b;
+    //isNaN() significa "si no es un numero" 
+    if(isNaN(a)|| isNaN(b)){
+        alert("El dividendo y el divisor deben ser números")
+    }else if (isFinite(c)){
+       alert("Resultado:"+c);  
+    }else{
+        alert("El resultado es demasiado grande");
+    }
+   
+    </script>
+</head>
+
+<body>
+    <h1>Fin</h1>
+</body>
+
+</html>

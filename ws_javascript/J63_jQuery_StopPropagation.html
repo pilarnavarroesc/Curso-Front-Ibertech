@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div{border:1px solid black;
+            padding:30px;background-color:yellow; }
+        body>div>div{background-color:aquamarine;}
+        div>div>div{background-color:cadetblue;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        function burbuja(event) {
+            var quienTieneElManejador = event.currentTarget.id;
+            var aQuienSeLeHizoClick = event.target.id;
+            console.log("Burbuja Salida",quienTieneElManejador,
+                    aQuienSeLeHizoClick);
+            if(event.currentTarget.id=="capa2"){
+                //terminamos en la capa2 no dejamos quue llegue a la capa exterior capa 1
+                event.stopPropagation();
+                console.log("---detenemos la prpagacion de eventos---");
+            }
+        }
+        
+        function inicializar(){
+            $("#capa1").on("click",burbuja);//document.getElementById("capa1").addEventListener("click",burbuja,false);
+            $("#capa2").on("click",burbuja);//document.getElementById("capa2").addEventListener("click",burbuja,false);
+            $("#capa3").on("click",burbuja);// document.getElementById("capa3").addEventListener("click",burbuja,false);
+        }
+        $(document).ready(inicializar);
+    </script>
+</head>
+<body onload="inicializar();">
+    <div id="capa1">
+        <div id="capa2">
+            <div id="capa3">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

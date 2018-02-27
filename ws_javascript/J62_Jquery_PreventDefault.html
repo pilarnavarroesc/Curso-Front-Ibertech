@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        img{display:block;height: 200px;}
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(event){
+            $("a").on("click",noNavegar);
+        });
+        function noNavegar(event) {
+            // Evitamos que el hipervínculo navegue.
+            event.preventDefault();
+            var url = $("a").attr("href");
+            alert("te voy a enseñar: " + url);
+            $("img").attr("src",url);
+        }
+    </script>
+</head>
+<body>
+    <a href="img/perro.png">Otra página</a>
+    <img src="" >
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function crearTabla() {
+            // Cada iteración es una fila
+            for (var i = 1; i <= 10; i++) {
+                var fila = "<tr>";
+                // Cada iteración es un elemento de la fila.    
+                for (let j = 1; j <=10; j++) {
+                    // Si el número (i*j) es mayor
+                    // que 50 ya no seguimos 
+                    // con este bucle for (ya no
+                    // imprimimos nada más de la fila)
+                    if(i*j>25) break;
+                    var clase = "colorImpar";
+                    if((i+j)%2==0){
+                        clase = "colorPar";
+                    }
+                    fila += "<td class='"+clase+"'>" 
+                        + (i * j) + "</td>";
+                }   
+                fila += "</tr>";
+                document.getElementById("cuerpo")
+                    .innerHTML += fila;
+                    
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+    <p>
+        <button onclick="crearTabla();">
+            Tabla Multiplicar</button>
+    </p>
+    <table id="tablaDatos"><tbody id="cuerpo"></tbody></table>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function insertarNota(){
+            var nota=parseFloat(
+            document.getElementById("txtNota").value);
+            var mensaje="";
+            if(nota<5){
+                mensaje="suspendido. :(";
+            }else
+            if(nota>=9 && nota<10){
+            mensaje="sobresaliente. :)";
+             }else
+            if(nota>=7 && nota<9){
+                mensaje="notable";
+            }else
+            if(nota=10){
+                mensaje="Matricula de Honor"
+            }else
+            mensaje="aprobado";
+            document.getElementById("resultado").value= mensaje;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Nota: <input type="text" id="txtNota" value="5">
+        <button onclick="insertarNota();">Insertar nota</button>
+        <input type="text" readonly="readonly" id="resultado"/>
+       
+       
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(event){
+            $("div#botones button").each(function(i,boton){
+                $(boton).click(pedirCapitulo);
+                $(boton).text( "Capítulo " + (i + 1));//queryselectorall
+                boton.numCapitulo = i + 1;
+            })
+        })
+       
+        function pedirCapitulo(event) {
+            var op={};//object de configuracion
+            op.url = "datos/capitulo" 
+                + event.currentTarget.numCapitulo + ".txt";
+            op.success=capituloOk;
+            op.error=capituloErr;
+            //con la siguiente fila me ahorraria las dos filas de arriba:
+            //var op {url:url,success:capituloOk,error:capituloError};
+            $.ajax(op);//envia la peticion al servidor
+        }
+        function capituloOk(texto,ok,req){
+            $("#texto").text(texto);
+        }
+        function capituloErr(req,msgError){
+            alert(req.status + ": " + req.statusText);
+        }
+        //asi me ahorro 8 lineas de codigo y ademas esta todo mas claro
+    </script>
+</head>
+
+<body>
+    <div id="botones">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <div id="texto" class="panel"></div>
+</body>
+
+</html>

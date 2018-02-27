@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function (event) {
+            $.get("personas",undefined,insertarEnTabla);
+            $("div#panelBuscar button").click(buscar);
+            $("div#panelInsertar button").click(insertar);
+        }).ajaxError(function(event,req,op,mensaje){
+            alert(req.status + ": " + req.statusText);
+        });
+        // Como la cabecera Content-Type de la respuesta
+        // es "application/json", jQuery lo analiza
+        // automáticamente y me pasa el matriz JavaScript
+        // resultante de convertir el JSON recibido.
+        function insertarEnTabla(personas){
+            var tbody = $("#tablaDatos tbody");
+            tbody.empty();//Vacía el contenido anterior.
+            personas.forEach(function(p){
+                var tr = $("<tr></tr>");
+                tr.append($("<td></td>").text(p.dni));
+                tr.append($("<td></td>").text(p.nombre));
+                tr.append($("<td></td>").text(p.apellidos));
+                tr.append($("<td></td>").text(p.saldo));
+                tbody.append(tr);
+            });
+        }
+        // ############### BUSCAR ############################
+        function buscar(event) {
+            var ape = $("#txtApellidos").val();
+            // localhost:3020/personas_buscar?apellidos=garcia
+            $.get("personas_buscar",{apellidos:ape},insertarEnTabla);
+        }
+        // ############### INSERTAR ############################
+        function insertar(event) {
+            var p = {};
+            p.dni = parseInt($("#dni").val());
+            p.nombre = $("#nombre").val();
+            p.apellidos = $("#apellidos").val();
+            p.saldo = parseFloat($("#saldo").val());
+            $.post("personas",p,insertarEnTabla);
+            $("#txtApellidos").val("");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Mantenimiento de clientes</h1>
+    <div class="panel" id="panelBuscar">
+        <label for="txtApellidos">Apellidos</label>
+        <input type="text" id="txtApellidos"/>
+        <button>Buscar</button>
+    </div>
+    <div class="panel" id="panelInsertar">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni"/><br/>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre"/><br/>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos"/><br/>
+            <label for="saldo">Saldo</label>
+            <input type="text" id="saldo"/><br/>
+            <button>Insertar</button>
+        </div>
+    <table id="tablaDatos">
+        <thead>
+            <tr><th>DNI</th><th>Nombre</th><th>Apellidos</th><th>Saldo</th></tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

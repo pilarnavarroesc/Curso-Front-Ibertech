@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>´
+    <script>
+            window.onload=function() {
+                document.getElementById("btnMostrar").onclick=mostrar;
+                document.getElementById("btnOcultar").onclick=ocultar;
+            }
+            function mostrar() {
+                var capa=document.getElementById("saludo");
+                capa.innerHTML="Hola desde JS";
+                capa.style.backgroundColor="yellow"
+                capa.style.display="block"
+                capa.style.border="1px solid black"
+
+            }   
+            function ocultar() {
+                var capa=document.getElementById("saludo");
+                capa.innerHTML="";
+                capa.style.display="none"
+            }   
+
+    </script>
+</head>
+<body>
+    <button id="btnMostrar">Mostrar</button>
+    <button id="btnOcultar">Ocultar</button>
+    <div id="saludo"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+    
+    </style>
+    <script>
+        var lista="";
+        window.onload = function () {
+            document.querySelectorAll("div#productos input[type=checkbox]")//matriz
+            .forEach(function(control){
+                control.addEventListener("change",prodSeleccionado);
+            });
+        };
+        //queremos que el producto selecionado se meta en la lista de la compra
+        function prodSeleccionado(event){
+            var producto=event.currentTarget.value;//nos permite saber que evento ha cambiado
+            if(event.currentTarget.checked){//si esta seleccionado lo añado a la lista
+                 lista +=producto +"<br/>";
+                
+            }else{// si no esta seleccionado hay que quitarlo de la lista
+                lista=lista.replace(producto+"<br/>","");//remplaza todo el primer termino por cadena vacia
+            }
+              
+                document.getElementById("compra").innerHTML=lista; 
+        }
+       
+    
+      
+    </script>
+   
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="productos">
+    
+        <input type="checkbox" value="leche" />Leche <br/>
+        <input type="checkbox" value="patatas"/>Patatas <br/>
+        <input type="checkbox" value="pan"/>Pan <br/>
+        <input type="checkbox" value="naranja"/>Naranjas <br/>
+        
+    </div>
+    <div id="compra"></div>
+</body>
+</html>

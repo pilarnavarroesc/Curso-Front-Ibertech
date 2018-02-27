@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        var m = {"Lunes":"Soleado",
+                 "Martes":"Nublado",
+                 "Miércoles":"Lluvia", 
+                 "Jueves":"Tormenta",
+                 "Viernes":"Granizo"};
+        function imprimir() {
+            var lista = document.querySelector("ul");
+            //tipico para reccorrer matrices
+            for (clave in m) {
+                lista.innerHTML += "<dt>" + 
+                    clave + "</dt><dd>" + 
+                    m[clave] +"</dd>";
+            }
+        }
+    </script>
+</head>
+<body onload="imprimir();">
+    <ul></ul>
+</body>
+</html>

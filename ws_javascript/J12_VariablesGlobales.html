@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <title id="t"></title>
+    <script>
+        var titulo = "Página Principal";
+        function getTituloMayusculas(){
+            //recibe el titulo en mayusculas
+            return titulo.toUpperCase();  
+        }
+        //es como otra forma de cambiar el titulo de la pestaña del navegador
+         document.getElementById("t").innerHTML = titulo;
+    </script>
+</head>
+<body>
+   <h1 id="h"></h1>
+   <h1 id="g"></h1>
+    <script>
+       document.getElementById("h").innerHTML=titulo;
+       document.getElementById("g").innerHTML=
+       getTituloMayusculas();
+    </script>
+</body>
+</html>

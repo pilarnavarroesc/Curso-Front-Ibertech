@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function calcular() {
+            // 1.- Lectura de los datos de entrada
+            var txta = document.getElementById("txta").value;
+            var txtb = document.getElementById("txtb").value;
+            var op = document.getElementById("operacion").value;
+            var resul = undefined;
+            // 2.- Conversión de los datos de entrada
+            var a = parseFloat(txta);
+            var b = parseFloat(txtb); 
+            // 3.- Realizar la operación (lógica de negocio)
+            if(op=="+"){
+                resul = a + b;
+            } else if(op=="-"){
+                resul = a - b;
+            } else if(op=="x"){
+                resul = a * b;
+            } else if(op=="/"){
+                resul = a / b;
+            }   
+            // 4.- Mostrar resultado
+            if(!isNaN(resul)){//Si es un número
+                document.getElementById("resultado").innerHTML = 
+                    a + " " + op + " " + b + " = " + resul;
+            } else {
+                document.getElementById("resultado").innerHTML =
+                    "operacion imcompleta o incorrecta";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="panel">
+        <label for="txta">a</label> 
+            <input type="text" id="txta" oninput="calcular();"/> <br/>
+        <label for="txtb">b</label> 
+            <input type="text" id="txtb" oninput="calcular();"/><br/>
+        <label for="operacion">Operación</label>     
+        <select id="operacion" oninput="calcular();">
+            <option value="+">Sumar</option>
+            <option value="-">Restar</option>
+            <option value="x">Mult.</option>
+            <option value="/">Div.</option>
+        </select>
+    </div>
+    <div id="resultado" class="panel"></div>
+</body>
+</html>

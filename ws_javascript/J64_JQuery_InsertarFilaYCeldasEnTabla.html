@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/jquery.js"></script>
+    <script>
+        // Ejercicio parecido a E54
+        $(document).ready(function (event) {
+            $("#btnInsertar").click(insertar);
+        });
+       
+        function insertar(params) {
+            var titulo = $("#txtTitulo").val();
+            var autor = $("#txtAutor").val();
+            var tr = $("<tr></tr>");//Fila
+            var td1 = $("<td></td>");//Celda1
+            var td2 = $("<td></td>");//Celda2
+            td1.text(titulo);//Contenido
+            td2.text(autor);//Contenido
+            // Traversing: -------- Opción con append ----------
+            // $("#tablaDatos tbody").append(tr); //Meter fila en el tbody
+            // tr.append(td1); //Meter en la fila la celda 1
+            // tr.append(td2); //Meter en la fila la celda 2
+            // Traversing: -------- Opción con appendTo ----------
+            tr.appendTo("#tablaDatos tbody").append(td1).append(td2);
+            // Traversing: -------- Opción con append ----------
+            // $("#tablaDatos tbody").append(tr.append(td1).append(td2));
+        }
+    </script>
+</head>
+<body>
+    <div class="panel">
+        <label for="txtTitulo">Titulo</label>
+        <input type="text" id="txtTitulo"/><br/>
+        <label for="txtAutor">Autor</label>
+        <input type="text" id="txtAutor"/>
+        <button id="btnInsertar">Insertar</button>
+    </div>
+    <table id="tablaDatos">
+        <thead>
+            <tr>
+                <th>Titulo</th><th>Autor</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+</body>
+</html>

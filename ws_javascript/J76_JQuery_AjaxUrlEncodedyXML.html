@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function (event) {
+           $("form[action='calcular']").on("submit",calcular);
+        });
+        $(document).ajaxError(function(event,req,op,mensaje){
+            alert(req.status + ": " + req.statusText);
+        });
+        function calcular(event) {
+            event.preventDefault();//Para que no se envíe el formulario
+            var form=$(event.currentTarget);
+            //var datos = "txta=4&txtb=5&operacion=x";//buscamos los datos en el input de abajo
+            //lo hacemmos mas facil de la siguiente manera:
+            var datos=form.serialize();
+            console.log("Enviamos:",datos);
+            $.post("calcular",datos,calcularOk);
+        }
+        function calcularOk(xml,msg,req) {
+            console.log("Recibimos:",req.responseText);
+            var txta=$("txta",xml).text();
+            var txtb=$("txtb",xml).text();
+            var op=$("operacion",xml).text();
+            var resul=$("resultado",xml).text();
+            $("p").text(txta + " " + op + " " + txtb +" = "+resul);
+        }
+        
+    </script>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <form action="calcular" method="post">
+        <div class="panel">
+            <label for="txta">a</label>
+            <input type="text" id="txta" name="txta"/><br/>
+            <label for="txtb">b</label>
+            <input type="text" id="txtb" name="txtb"/>
+            <select name="operacion" id="operacion">
+                <option value="+">Sumar</option>
+                <option value="-">Restar</option>
+                <option value="x">Mult.</option>
+                <option value="/">Div.</option>
+            </select>
+            <button>Calcular</button>
+        </div>
+    </form>
+   <p>
+
+   </p>
+    
+</body>
+
+</html>

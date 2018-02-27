@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        window.onload = function () {
+            empezar();
+        }
+        function empezar() {
+            // Llamamos a "mostrar hora" dentro de 300 milisegundos.
+            contador = setInterval(mostrarHora,300);
+        }
+        function mostrarHora(){
+           var ahora=new Date();
+           document.querySelector("div").innerHTML=
+                ahora.toLocaleTimeString();
+        }
+        function parar() {
+            // Paro el temporizador asociado a la variable contador.
+            clearTimeout(contador);
+        }
+    </script>
+    <style>
+        div{
+            padding: 20px;background-color: yellow;
+            font-size: 40px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

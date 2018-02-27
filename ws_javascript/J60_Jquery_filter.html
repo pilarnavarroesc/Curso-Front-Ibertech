@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        *{box-sizing: border-box;}
+        table{border-collapse: collapse;}
+        td{height:50px;width:50px;border:1px solid black;}
+    </style>
+   pp
+    <script> // Este script tiene que estar después del de jquery 
+        window.onload = function (event) {
+           $("input").on("input",recorrer);
+           $("div#contenedor>div").css({padding:"20px",marginTop:"10px"});
+        }
+        function recorrer(params) {
+            var divs = $("div#contenedor>div");
+            divs.css("background-color","yellow");
+            var k = $("input").val();
+            // Puedo refinar un objeto jQuery, mediante el método filter,
+            // para quedarme solamente con algunos de sus elementos.
+            var seleccionados = divs.filter(":nth-child(" + k + "n)");
+            // nth-child retorna el los hijos n-esimos de su padre.
+            // eq retorna el elemento n-esimo de la consulta. No puede
+            // emplear "n" solamente números.
+            seleccionados.css("background-color","orange");
+        }
+    </script>
+</head>
+
+<body>
+    <p><input type="number" min="1" max="5"></p>
+    <div id="contenedor">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+</body>
+
+</html>

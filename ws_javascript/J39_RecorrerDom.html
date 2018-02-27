@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function recorrerTabla() {
+           
+            var tabla=
+              document.getElementById("tablaDatos");
+            var celdas=tabla.querySelectorAll("td");
+            //recorrer con la instruccion for
+            for (var i = 0; i < celdas.length; i++) {
+             //para quitar las clases de estilo en td
+            var td = celdas[i];
+                td.className=""; 
+            }
+            var filas=tabla.querySelectorAll("tr");
+            //recorrer con el metodo forEach
+           filas.forEach(function(tr,i,mat){
+               var suma=0;
+               var cuantas=0;
+               tr.querySelectorAll("td").forEach(function (td,pos,mat){
+                    cuantas++;
+                    var texto=td.firstChild.nodeValue;
+                    suma+= parseInt(texto);
+               });
+            console.log("Media fila", i ,":",suma/cuantas);
+           });
+        }
+        
+    </script>
+</head>
+
+<body>
+    <p>
+        <button onclick="recorrerTabla();">
+            Recorrer Tabla</button>
+    </p>
+
+    <table id="tablaDatos"><tbody id="cuerpo"><tr><td class="colorPar">1</td><td class="colorImpar">2</td><td class="colorPar">3</td><td class="colorImpar">4</td><td class="colorPar">5</td><td class="colorImpar">6</td><td class="colorPar">7</td><td class="colorImpar">8</td><td class="colorPar">9</td><td class="colorImpar">10</td></tr><tr><td class="colorImpar">2</td><td class="colorPar">4</td><td class="colorImpar">6</td><td class="colorPar">8</td><td class="colorImpar">10</td><td class="colorPar">12</td><td class="colorImpar">14</td><td class="colorPar">16</td><td class="colorImpar">18</td><td class="colorPar">20</td></tr><tr><td class="colorPar">3</td><td class="colorImpar">6</td><td class="colorPar">9</td><td class="colorImpar">12</td><td class="colorPar">15</td><td class="colorImpar">18</td><td class="colorPar">21</td><td class="colorImpar">24</td><td class="colorPar">27</td><td class="colorImpar">30</td></tr><tr><td class="colorImpar">4</td><td class="colorPar">8</td><td class="colorImpar">12</td><td class="colorPar">16</td><td class="colorImpar">20</td><td class="colorPar">24</td><td class="colorImpar">28</td><td class="colorPar">32</td><td class="colorImpar">36</td><td class="colorPar">40</td></tr><tr><td class="colorPar">5</td><td class="colorImpar">10</td><td class="colorPar">15</td><td class="colorImpar">20</td><td class="colorPar">25</td><td class="colorImpar">30</td><td class="colorPar">35</td><td class="colorImpar">40</td><td class="colorPar">45</td><td class="colorImpar">50</td></tr><tr><td class="colorImpar">6</td><td class="colorPar">12</td><td class="colorImpar">18</td><td class="colorPar">24</td><td class="colorImpar">30</td><td class="colorPar">36</td><td class="colorImpar">42</td><td class="colorPar">48</td><td class="colorImpar">54</td><td class="colorPar">60</td></tr><tr><td class="colorPar">7</td><td class="colorImpar">14</td><td class="colorPar">21</td><td class="colorImpar">28</td><td class="colorPar">35</td><td class="colorImpar">42</td><td class="colorPar">49</td><td class="colorImpar">56</td><td class="colorPar">63</td><td class="colorImpar">70</td></tr><tr><td class="colorImpar">8</td><td class="colorPar">16</td><td class="colorImpar">24</td><td class="colorPar">32</td><td class="colorImpar">40</td><td class="colorPar">48</td><td class="colorImpar">56</td><td class="colorPar">64</td><td class="colorImpar">72</td><td class="colorPar">80</td></tr><tr><td class="colorPar">9</td><td class="colorImpar">18</td><td class="colorPar">27</td><td class="colorImpar">36</td><td class="colorPar">45</td><td class="colorImpar">54</td><td class="colorPar">63</td><td class="colorImpar">72</td><td class="colorPar">81</td><td class="colorImpar">90</td></tr><tr><td class="colorImpar">10</td><td class="colorPar">20</td><td class="colorImpar">30</td><td class="colorPar">40</td><td class="colorImpar">50</td><td class="colorPar">60</td><td class="colorImpar">70</td><td class="colorPar">80</td><td class="colorImpar">90</td><td class="colorPar">100</td></tr></tbody></table>
+</body>
+
+</html>

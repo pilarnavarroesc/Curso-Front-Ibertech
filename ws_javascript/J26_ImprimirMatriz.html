@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        var m = ["Lunes", "Martes", "Miércoles", 
+            "Jueves", "Viernes"];
+        function imprimir() {
+            var lista = document.querySelector("ul");
+            //tipico para reccorrer matrices
+            for (var i = 0; i < m.length; i++) {
+                lista.innerHTML += "<li>" + 
+                    m[i] + "</li>";
+            }
+        }
+    </script>
+</head>
+<body onload="imprimir();">
+    <ul></ul>
+</body>
+</html>

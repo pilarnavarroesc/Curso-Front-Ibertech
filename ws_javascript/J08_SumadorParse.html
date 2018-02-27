@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/> 
+   <script>
+     // pide un numero pero viene como texto
+ var txtA= prompt("Inserte un numero");
+ //lo convertimos a numero
+ var a=parseFloat(txtA);
+ var txtB= prompt("Inserte otro numero");
+ //lo convertimos a numero
+ var b=parseFloat(txtB);
+var c= a + b;
+ alert("La suma es "+c);
+ //toSting convierte de numero a string en la base indicada, en este caso 2 que es binario
+ var d= c.toString(2);
+ alert("y en binario "+d);
+ var c= Math.floor( a / b);//fllor-->redondeo hacia abajo
+ alert("La division es " + c);
+ var r= a % b;
+ alert("El resto es " + r);
+ var prueba = ((b*c+r)==a)
+ alert ("Prueba: " + prueba);
+    </script>
+</head>
+<body>
+  
+</body>
+</html>

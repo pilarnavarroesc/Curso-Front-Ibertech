@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div{border:1px solid black;
+            padding:30px;background-color:yellow; }
+        body>div>div{background-color:aquamarine;}
+        div>div>div{background-color:cadetblue;}
+    </style>
+    <script>
+        function manejador(event) {
+            var quienTieneElManejador = event.currentTarget.id;
+            var aQuienSeLeHizoClick = event.target.id;
+            console.log(quienTieneElManejador,
+                    aQuienSeLeHizoClick);
+        }
+        function inicializar(){
+            //Establezco las funciones manejadoras de los eventos 
+            //onclick de las tres capas
+            document.getElementById("capa1").onclick=manejador;
+            document.getElementById("capa2").onclick=manejador;
+            document.getElementById("capa3").onclick= manejador;
+        }
+        //establezco la funcion inicializar como funcion onload 
+        //(que se ejecutara cuando la pagina este cargada)
+        // a partir de ahora los eventos los asignaremos de esta manera:
+        window.onload=inicializar;
+    </script>
+</head>
+<body onload="inicializar();">
+    <div id="capa1">
+        <div id="capa2">
+            <div id="capa3">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    div{
+    background-color: yellow;
+    border: 1px double black;
+    padding: 25px;
+    color:blue
+    }
+    </style>
+</head>
+<script>
+    window.onload=function() {
+       document.querySelector("button#btnHora").onclick=mostrarHora;
+   }
+  
+   function mostrarHora(event){
+       var capa=document.querySelector("div")
+       //mediante new creamos un objeto de la clase date
+       //y lo guardamos en una variable(referencia) "hora".
+           var hora= new Date();
+           //Ejecutamos el metodo tolocatetimeString del objeto apuntando
+           //por "hora" que retorna solamente la hora
+           capa.innerHTML=hora.toLocaleTimeString();
+            capa.style.width="50%";
+             capa.style.margin="10px auto";
+             capa.style.textAlign="center";
+        }
+</script>
+<body>
+        <button id="btnHora">Mostrar Hora</button>
+    <div></div>
+</body>
+</html>

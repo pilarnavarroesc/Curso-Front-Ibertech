@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    div{
+        background-color: yellow;
+        border: 1px double black;
+        padding: 25px;
+        color:blue
+        }
+    </style>
+    <script>
+        window.onload=function() {
+            document.getElementById("btnMostrar").onclick=mostrarHora;
+        }
+        function mostrarHora() {
+            var hor=new Date();
+            var capa= document.getElementById("hora");
+            capa.innerHTML=hor.toLocaleTimeString();
+            capa.style.backgroundColor="yellow";
+            capa.style.width="50%";
+            capa.style.margin="10px auto";
+            capa.style.textAlign="center";
+
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btnMostrar">Mostrar hora</button>
+    <div id="hora"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        table{border-collapse: collapse;}
+        tr#espacio{
+        background-color: aqua; }
+        table td{border:1px solid black;}
+    </style>
+    <script>
+        window.onload=function() {
+            document.getElementById("btnInsertar").onclick=insertar;
+        }
+        function insertar(){
+            var cadena=document.getElementById("text").value;
+            var fila="<td>"+cadena+"</td>"
+            document.getElementById("espacio").innerHTML+=fila;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="text">
+    <button id="btnInsertar">Insertar</button>
+    <table id="tabl">
+        <tr id="espacio"></tr>
+    </table>
+</body>
+</html>

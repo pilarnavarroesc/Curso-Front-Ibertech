@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div.menu{width: 100px;float:left;}
+        div.item, div.cabecera{border:1px solid black;padding: 7px 17px}
+        div.cabecera{background-color: pink;border-right: 0px;}
+        div.menu:last-child div.cabecera{ border-right: 1px solid black !important}
+        div.item{background-color: aquamarine;border-top:0px;}
+        div.menu div.submenu{display:none;}
+        div.menu:hover div.submenu{display:block;}
+        div.submenu div.item:hover{background-color: yellow;}
+        img#foto{height: 50px;width: 50px;}
+    </style>
+    <script>
+         function ver(animal){
+            var an="img/"+animal+".png";
+            document.getElementById("foto").src=an;
+        }
+        function ocultar(){
+            document.getElementById("foto").src = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <div class="cabecera">Archivo</div>
+        <div class="submenu">
+            <div class="item">Nuevo archivo</div>
+            <div class="item">Nuevo carpeta</div>
+            <div class="item">Guardar</div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="cabecera">Editar</div>
+        <div class="submenu">
+            <div class="item">Deshacer</div>
+            <div class="item">Cortar</div>
+            <div class="item">Pegar</div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="cabecera">Seleccion</div>
+        <div class="submenu">
+            <div class="item">Expandir</div>
+            <div class="item">Mover</div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="cabecera">Animales</div>
+        <div class="submenu">
+            <div class="item" onmouseover="ver('perro');" onmouseout="ocultar()">Perro</div>
+            <div class="item" onmouseover="ver('gato');" onmouseout="ocultar()">Gato</div>
+        </div>
+    </div>
+    <div>
+            <img id="foto" />
+    </div>
+</body>
+</html>

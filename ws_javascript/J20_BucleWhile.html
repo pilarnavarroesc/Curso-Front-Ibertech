@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        var password = "";
+        var veces = 0;
+        while (password!="Alejandría") {
+            password = prompt("Inserte la contraseña");
+            veces++;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>¡¡¡Bienvenido a Egipto!!!</h1>
+    <div></div>
+    <script>
+        document.querySelector("div").innerHTML = 
+            "Te ha costado entrar " + veces + " intentos";
+    </script>
+</body>
+</html>

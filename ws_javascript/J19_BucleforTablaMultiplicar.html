@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function crearTabla() {
+            for (var i = 1; i <= 10; i++) {
+                var fila = "<tr>";
+                for (var j = 1; j <=10; j++) {
+                    var clase = "colorImpar";
+                    //para poner estilos de color
+                    if((i+j)%2==0){
+                        clase = "colorPar";
+                    }
+                    fila += "<td class='"+clase+"'>" 
+                        + (i * j) + "</td>";
+                }   
+                fila += "</tr>";
+                document.getElementById("cuerpo")
+                    .innerHTML += fila;
+                    
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+    <p>
+        <button onclick="crearTabla();">
+            Tabla Multiplicar</button>
+    </p>
+    <table id="tablaDatos"><tbody id="cuerpo"></tbody></table>
+</body>
+
+</html>

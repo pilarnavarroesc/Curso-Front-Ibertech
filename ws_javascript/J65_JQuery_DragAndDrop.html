@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="js/jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <style>
+        *{box-sizing: border-box;}
+        div{padding: 20px;border:1px solid black;min-height: 90px;}
+        div.movil{background-color: cadetblue;display: inline-block;width: 90px;}
+        div.parking{background-color: yellow;}
+        div#superior{top:0px;}
+        div#inferior{bottom:0px;margin-top: 200px;}
+        div.encima{border:4px dashed darkblue;}
+    </style>
+    <script>
+        
+        $(document).ready(function (event) {
+            var opciones={revert:true};//cuando lo suelte vuelve a su sitio
+            opciones.helper="clone"//copia el arrastrado
+            $(".movil").draggable(opciones);
+            var op={accept:"div.movil"};
+            op.hoverClass="encima"//se le aplica al dropable cuando le paso un objeto arrastrado por encima
+            op.drop=soltar;//que queremos hacer cuando soltemos
+            $(".parking").droppable(op);
+
+        });
+       //esta funcion solo es para el dropable, cuando le suelto algo encima
+        function soltar(event,properties) {
+            // alert("soltado");
+            //event.currentTarget--> es el droppable(destino)
+            //properties.helper-->es el objeto arrastrado 
+            //propierties.dragable-->objeto arrastrado inicial
+            $(event.currentTarget).append(properties.draggable)
+           
+        }
+    </script>
+</head>
+<body>
+    <div id="superior" class="parking">
+       <div class="movil">1</div>
+       <div class="movil">2</div>
+       <div class="movil">3</div>
+       <div class="movil">4</div>
+    </div>
+    <div id="inferior" class="parking">
+       
+        </div>
+    
+</body>
+</html>

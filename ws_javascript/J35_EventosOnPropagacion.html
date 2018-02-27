@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div{border:1px solid black;
+            padding:30px;background-color:yellow; }
+        body>div>div{background-color:aquamarine;}
+        div>div>div{background-color:cadetblue;}
+    </style>
+    <script>
+        function manejador(event) {
+            var quienTieneElManejador = event.currentTarget.id;
+            var aQuienSeLeHizoClick = event.target.id;
+            console.log(quienTieneElManejador,
+                    aQuienSeLeHizoClick);
+        }
+    </script>
+</head>
+<body>
+    <div onclick="manejador(event);" id="capa1">
+        <div onclick="manejador(event);" id="capa2">
+            <div onclick="manejador(event);" id="capa3">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

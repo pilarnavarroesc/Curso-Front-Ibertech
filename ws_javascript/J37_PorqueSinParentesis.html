@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div{border:1px solid black;
+            padding:30px;background-color:yellow; }
+        body>div>div{background-color:aquamarine;}
+        div>div>div{background-color:cadetblue;}
+    </style>
+    <script>
+       
+        function inicializar(){
+            alert("Inicializado")
+        }
+        //Establezco la funcion inicializar como funcion onload 
+        //(que se ejecutara cuando la pagina este cargada)
+        // a partir de ahora los eventos los asignaremos de esta manera:
+        window.onload=inicializar;
+        //Caso 1: si no pongo los parentesis
+        //Inicializar se ejecutara cuando la pagina se haya cargado
+        //Caso 2: si pongo los parentesis inicializar se ejecutara ahora
+        //(todavia no se han cargado toda la pagina)
+    </script>
+</head>
+<body>
+       <h1>Pagina cargada</h1>
+</body>
+</html>

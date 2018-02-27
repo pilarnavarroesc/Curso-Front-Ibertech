@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function imprimir() {
+            for (var i = 1; i <= 20; i++) {
+                // "continue" termina la iteración actual y no imprime el 12
+                // "break" termina el bucle y no imprime nada a partir del 12.
+                if (i == 12) {
+                  break; // continue;
+                }
+                document.querySelector("p").innerHTML +=
+                    i + "<br/>";
+            }
+        }
+    </script>
+</head>
+
+<body onload="imprimir();">
+    <p></p>
+</body>
+
+</html>

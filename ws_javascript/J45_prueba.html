@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        window.onload=function(){
+            document.querySelectorAll("input[type=checkbox]").onchange=cambioCheck;
+            var radios= document.querySelectorAll("input[name=cosa]");
+             radios.forEach(function(radios){
+                 radios.onchange=cambioRadio; //cuando el radio cambie se ejecuta cambioRadio
+            });
+        }
+        //cada vez que cambio el radio se ejecuta la funcion
+        function cambioRadio(){
+            var radios= document.querySelectorAll("input[name=cosa]")
+            radios.forEach(function(radios){
+                if(radios.checked){
+                    document.getElementById("foto").src="img/"+radios.value;
+                }
+            });
+        }
+        function mostrarFoto(mostrar){
+            if(mostrar){
+                document.getElementById("foto").style.display="inline";
+            }else{
+                document.getElementById("foto").style.display="none";
+            }
+        }
+         function cambioCheck(event){
+           mostrarFoto(event.currentTarget.checked)//activa el evento solo cuando esta checked
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="checkbox" autocomplete="off"/>Mostrar Imagen<br/>
+        <input type="radio" name="cosa" value="gato.png"/>Gato
+        <input type="radio" name="cosa" value="perro.png"/>Perro
+        <input type="radio" name="cosa" value="casa.gif"/>Casa
+        <img id="foto"/>
+    </div>
+</body>
+</html>

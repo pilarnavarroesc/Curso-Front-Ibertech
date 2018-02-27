@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        div#contenedor{padding:0px !important;}
+    </style>
+    <script>
+        function generar(max){
+            return Math.floor(max * Math.random())
+        }
+        function dibujar() {
+            var conte = document.getElementById("contenedor");
+            for (let i = 0; i < 120; i++) {
+                var top = generar(450);
+                var left = generar(550);
+                var r = generar(256);
+                var g = generar(256);
+                var b = generar(256);
+                var a = Math.random();
+                var col = "rgba(" + r + "," + g 
+                    + "," + b + "," + a + ")";
+                var capita = "<div class='capita' "
+                    + "style='top:" + top + "px;left:"
+                    + left + "px;background-color:"
+                    + col + ";'></div>";
+                conte.innerHTML+= capita;
+            }
+        }
+        
+    </script>
+</head>
+<body onload="dibujar();">
+    <div id="contenedor"></div>
+</body>
+
+</html>

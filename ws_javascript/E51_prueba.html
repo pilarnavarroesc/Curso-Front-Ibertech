@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        div#mensaje{
+        background-color: yellow;
+        border: 1px double black;
+        padding: 25px;
+        text-align: center;
+        display:none;
+        }
+     </style>
+     <script>
+         var visible=false;
+         window.onload=function(){
+            document.getElementById("btnClick").onclick=conmutar;
+         }
+         function conmutar(){
+            var capa=document.getElementById("mensaje");
+            if(visible==false){
+                capa.innerHTML="Hola desde JS"
+                capa.style.display="block";
+                visible=true;
+            }else{
+                capa.innerHTML=" "
+                capa.style.display="none";
+                visible=false;
+            }
+         }
+     </script>
+</head>
+<body>
+    <button id="btnClick">Click</button>
+    <div id="mensaje"></div>
+</body>
+</html>

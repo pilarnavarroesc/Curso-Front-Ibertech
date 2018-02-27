@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function insertarFila(titulo,autor){
+            var fila = "<tr><td>" + titulo + "</td>" +
+                        "<td>" + autor + "</td></tr>";
+            document.getElementById("cuerpoTabla")
+                .innerHTML += fila;
+        }
+    </script>
+</head>
+<body>
+    <table id="tablaDatos">
+        <thead>
+            <tr><th>Titulo</th><th>Autor</th></tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+            <tr><td>Quijote</td><td>Cervantes</td></tr>
+        </tbody>
+    </table>
+    <script>
+        insertarFila("Fuente Ovejuna","Lope de Vega");
+        insertarFila("La vida es sueño","Calderón");
+        insertarFila("El buscón","Quevedo");
+    </script>
+</body>
+</html>

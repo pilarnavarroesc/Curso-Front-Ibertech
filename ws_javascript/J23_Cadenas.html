@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        function invertir() {
+            var txt = document
+                .querySelector("input#texto").value;
+            var resul = "";
+            // length-> propiedad con el número de caracteres
+            for (let i = 0; i < txt.length; i++) {
+                resul = txt.charAt(i) + resul;
+            }
+            document.querySelector("div").innerHTML = resul;
+        }
+        function trocear() {
+            var txt = document
+                .querySelector("input#texto").value;
+            var resul = "";
+            var n =0;
+            while(n<txt.length){
+                // Retorna un trozo de 5 caracteres
+                // a partir de la pos n-esima.
+                //var trozo = txt.substring(n,n+5);
+                var trozo = txt.substr(n,5);
+                resul += trozo + "<br/>";
+                n+=5; // n = n + 5;
+            }
+            document.querySelector("div").innerHTML = resul;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input type="text" id="texto" size="80"/><br/>
+        <button onclick="invertir();">Invertir</button>
+        <button onclick="trocear();">Trocear</button>
+    </p>
+    <div></div>
+</body>
+
+</html>

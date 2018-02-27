@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+    div#mensaje{
+    background-color: yellow;
+    border: 1px double black;
+    padding: 25px;
+    }
+    </style>
+</head>
+<script>
+    //podemos hacerlo con funcion anonima, para no repetir.
+    // window.onload=function{
+    //    document.querySelector("button#btnSaludar").onclick=saludar;
+    // }
+   window.onload=inicializar;//evento
+   function inicializar(){
+        document.querySelector("button#btnSaludar").onclick=saludar;
+        //de una forma mas profesional quedaria asi:
+        //document.querySelector("button#btnSaludar").addEventListener("click",saludar);
+   }
+   function saludar(event){
+    //document.querySelector("#mensaje").innerHTML="<b>Hola desde Javasript</b>";
+    //hacer que el ancho del div sea 50% y este centrado tanto div como su texto
+    //document.querySelector("#mensaje").style.width="50%";
+    //document.querySelector("#mensaje").style.margin="10px auto";
+    //document.querySelector("#mensaje").style.textAlign="center";
+    //para que no sea tan repetitivo to lo haremos del sigiieunte modo:
+    //guardo en una variable una referencia al objeto DOM
+    //asociado al div mensaje
+    var capa=document.querySelector("#mensaje");
+    capa.innerHTML="<b>Hola desde Javasript</b>";
+    capa.style.width="50%";
+    capa.style.margin="10px auto";
+    capa.style.textAlign="center";
+   }
+</script>
+<body>
+        <button id="btnSaludar">Haga click</button>
+    <!-- div con un id"mensaje" -->
+    <div id="mensaje"></div>
+</body>
+</html>

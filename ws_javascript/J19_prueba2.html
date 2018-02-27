@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <script>
+        function tablaMultiplicar() {
+            document.getElementById("result").innerHTML = "  ";
+            var n=document.getElementById("nTabla").value;
+            for (let i = 0; i <=10; i++) {
+                resultado=n*i;
+                document.getElementById("result").innerHTML += n + "  x  "+i+ " = " +resultado + "<br/>";
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="nTabla">
+    <button onclick="tablaMultiplicar();">Tabla</button>
+    <div id="result"></div>
+</body>
+</html>
